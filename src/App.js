@@ -8,7 +8,7 @@ export default class App extends Component {
   render() {
     return (
       <Provider>
-        <div className="flex self-center justify-center bg-gray-100 w-full h-screen text-center font-sans">
+        <div className="flex self-center justify-center bg-white w-full h-screen text-center font-sans">
           <Box></Box>
         </div>
       </Provider>
