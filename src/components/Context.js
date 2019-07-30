@@ -12,7 +12,7 @@ const reducer = (state, action) => {
                     return todo;
                 })
             };
-        case 'TOGGLE_ADD' :
+        case 'TOGGLE_ADD':
             return{
                 isAddBlock: !state.isAddBlock
             };
