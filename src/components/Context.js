@@ -12,6 +12,14 @@ const reducer = (state, action) => {
                     return todo;
                 })
             };
+        case 'TOGGLE_ADD' :
+            return{
+                isAddBlock: !state.isAddBlock
+            };
+        case 'ADD_TASK':
+            return{
+                todos: [...state.todos, action.payload]
+            };
         default:
             return state;
     }
@@ -37,6 +45,7 @@ export class Provider extends Component {
                 isChecked: false
             }
         ],
+        isAddBlock: false,
         dispatch: action => this.setState(state => reducer(state, action))
     }
 

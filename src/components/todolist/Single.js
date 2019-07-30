@@ -4,7 +4,6 @@ import { Consumer } from '../Context';
 export default class Single extends Component {
 
     handleCheck(id, dispatch) {
-        console.log('hi',id);
         dispatch({
             type:'CHECK_TODO',
             payload: id
