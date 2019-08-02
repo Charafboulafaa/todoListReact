@@ -23,7 +23,7 @@ export default class Header extends Component {
                         <p className="font-normal text-sm">{monthNames[date.getMonth()]}</p>
                     </div>
                     <div>
-                        <p className="font-normal text-sm">{value.todos.filter((todo)=>(todo.isChecked !== false)).length}/{value.todos.length} Done</p>
+                        <p className="font-normal text-sm">{value.todos.filter((todo)=>(todo.completed !== false)).length}/{value.todos.length} Done</p>
                     </div>
 
                     <button className="absolute right-0 bottom-0 bg-white text-pink-700 text-center w-12 h-12 rounded-full border-2 border-transparent hover:bg-pink-100 -mb-5 mr-2 focus:outline-none text-2xl" onClick={this.btnAddClickHandler.bind(this, value.dispatch)}>+</button>

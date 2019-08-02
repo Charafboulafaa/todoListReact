@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 
 const Context = React.createContext();
 
@@ -8,7 +9,7 @@ const reducer = (state, action) => {
             return{
                 todos: state.todos.map((todo)=>{
                     if(todo.id === action.payload)
-                        todo.isChecked = !todo.isChecked
+                        todo.completed = !todo.completed
                     return todo;
                 })
             };
@@ -18,7 +19,7 @@ const reducer = (state, action) => {
             };
         case 'ADD_TASK':
             return{
-                todos: [...state.todos, action.payload]
+                todos: [action.payload, ...state.todos]
             };
         default:
             return state;
@@ -27,22 +28,29 @@ const reducer = (state, action) => {
 
 export class Provider extends Component {
 
+    async componentDidMount(){
+        const res = await axios.get('https://jsonplaceholder.typicode.com/todos');
+        this.setState({
+            todos: res.data.reverse()
+        });
+    }
+
     state = {
         todos:[
             {
                 id:1,
-                task: 'Morning run',
-                isChecked: false
+                title: 'Morning run',
+                completed: false
             },
             {
                 id:2,
-                task: 'Learning ReactJS',
-                isChecked: true
+                title: 'Learning ReactJS',
+                completed: true
             },
             {
                 id:3,
-                task: 'Practice and improve skills',
-                isChecked: false
+                title: 'Practice and improve skills',
+                completed: false
             }
         ],
         isAddBlock: false,

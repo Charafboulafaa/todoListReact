@@ -7,7 +7,7 @@ export default class List extends Component {
         return (
             <Consumer>
                 {value=>(
-                    <div className="flex flex-col h-full w-full bg-gray-100">
+                    <div className="flex flex-col h-full w-full overflow-y-scroll bg-gray-100">
                         {value.todos.map((todo)=>(
                             <Single key={todo.id} data={todo}/>
                         ))}
